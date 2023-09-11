@@ -1,0 +1,259 @@
+<!---
+/////////////////////////////////////////////////////////////
+/// Escaposaurus v1 (2020)
+///	A quick and dirty framework to create small adventure game (certified vanilla JS)
+/// Author: Stéphanie Mader (http://smader.interaction-project.net)
+/// GitHub: https://github.com/RedNaK/escaposaurus
+///	Licence: MIT
+////////////////////////////////////////////////////////////
+-->
+
+<html>
+<head>
+	<title></title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- lightbox css -->
+	<link href="libs/lightbox/lightbox.min.css" rel="stylesheet">
+	<!--Old version of minimied css of bootstrap -->
+	<link rel="stylesheet" href="libs/bootstrap.min.css">
+	
+	<!-- everything that run the game -->
+	<script src="escaposaurus_video.js"></script>
+
+	<!-- this modified lighbox won't do anything before being called hence the possibility to put it in the header-->
+	<script src="libs/lightbox/lightboxNK.js"></script>
+
+<!-- HERE TO change the folder to your game -->
+<!-- //////////////////////////////////// -->
+	<!-- favicon generated using https://favicon.io/ -->
+	<link rel="icon" type="image/png" sizes="32x32" href="escaposaurus_examplegamedata/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="escaposaurus_examplegamedata/img/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/png" href="escaposaurus_examplegamedata/img/favicon/favicon.ico">
+
+	<!-- our stylesheet -->
+	<link rel="stylesheet" href="escaposaurus_examplegamedata/escaposaurus_style.css">
+
+	<!-- everything that run the game -->
+	<script src="escaposaurus_examplegamedata/escaposaurus_exampledata.js"></script>
+<!-- /HERE TO INCLUDE YOUR GAME DATA -->
+<!-- //////////////////////////////////// -->
+
+	<!-- HERE ABOUT TINYSTATO IMPLEMENTATION -->
+	<!--<script src="tinystatosaurus/tinystatosaurus_config.js"></script>	
+	<script src="tinystatosaurus/tinystatosaurus.js"></script>-->
+
+	<script type="text/javascript">
+	/* HERE THE TINYSTATOSTUFF TO AVOID ERROR WHEN NOT INSTALLED*/
+		function TinyStatosaurus(){}
+		TinyStatosaurus.prototype.logThis = function (o, t, th, fo){};
+		TinyStato = new TinyStatosaurus() ;
+
+		/*change title and description from the data once it's loaded*/
+		window.addEventListener('load', loadDataIntoHTML, false) ;
+	</script>
+</head>
+<body>
+	<div class="hidden">
+			<script type="text/javascript">
+				<!--//--><![CDATA[//><!--
+					function preload(files, list) {
+						for (i = 0; i < files.length; i++) {
+							var vidPreload = new Preload();
+							vidPreload.src = files[i];
+							if(typeof list !== "undefined"){
+								list[i] = img;
+							}
+						}
+					}
+
+					preload([]);
+				//--><!]]>
+			</script>
+		</div>
+	<div id="main-container">
+
+		<div id="os-name"></div>
+
+		<div id='main-game-div' class="container">
+			<div class="row">
+				<div class="col-sm-6" style="height:85%;">
+					<div id="callApp">
+						<div class="app-title">
+							<span class="app-title-span" id="callerApp-name"></span>
+						</div>
+						<div id="callApp-prompt"></div>
+						<div id="normal-contact" class="contact-list">
+						</div>
+						<div id="callApp-help">
+							Si besoin d'aide et d'indice pour trouver un mot de passe.
+						</div>
+						<div id="help-contact" class="contact-list">
+						</div>
+				</div>
+				</div>
+
+				<div class="col-sm-6" style="height:85%;">
+					<div id="folderApp">
+						<div class="app-title">
+							<span class="app-title-span" id="explorer-name"></span>
+						</div>
+						<div id="folderApp-content">
+							<div>
+								<ul id="rootul" name="rootul">
+								  <li class="rootLI">
+								    Root
+								  </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer"><button class="footer-button" onclick="openIt('overlay-index')">Revoir page introduction</button>
+			<button class="footer-button" onclick="openVideoWindow('introBis')">Revoir premier appel reçu</button>
+			<button id="button-outro" class="footer-button hidden" onclick="openVideoWindow('epilogue')">Revoir vidéo générique</button>
+			<button class="footer-button" onclick="openIt('solution-window')">Aide &amp; solutions</button>
+			<button class="footer-button" onclick="openIt('credit-window')">Crédits</button></div>
+	</div>
+	<div id="callVideo-window" class="hidden">
+		<div class="app-title"><span id="callVideo-title" class="app-title-span">APPEL EN COURS</span></div>
+		<div id="callVideo-content">	
+		</div>
+		<br/>
+		<button id="btn-closecall" onclick="closeVideoWindow(this.parentElement);">FERMER</button>
+	</div>
+	<!--PASSWORD CAN'T UNLOCK NOW-->
+		<div id="notnowPrompt-window" class="hidden">
+			<div class="app-title"><span class="app-title-span">PROTEGE</span></div>
+			<div class="message-content">
+				Le dossier <span id="folderN"></span> ne peut être déverouillé pour le moment<br/>
+				<button class="window-btn" onclick="closeIt('notnowPrompt-window')">OK</button>
+			</div>
+		</div>
+
+	<!--PASSWORD PROMPT-->
+		<div id="passPrompt-window" class="hidden">
+			<div class="app-title"><span class="app-title-span">PROTEGE</span></div>
+			<div class="message-content">
+				Dossier : <span id="folderD"></span><br/>
+				<input id="passwordInput" name="passwordInput" type="text" placeholder="mot de passe" value="" autocomplete="off" onkeypress="checkIfEnter(event, passwordInput.value, folderInput.value)" />
+				<input id="folderInput" name="folderInput" type="hidden" value="0" />
+				<button class="window-btn" onclick="checkPassword(passwordInput.value, folderInput.value)">OK</button>
+				&nbsp;&nbsp;
+				<button class="window-btn" onclick="closeIt('passPrompt-window')">ANNULER</button>
+			</div>
+		</div>
+
+	<!-- WRONG PASSWORD MSG -->
+		<div id="wrongPassword" class="hidden">
+			<div class="app-title"><span class="app-title-span">:(</span></div>
+			<div class="message-content">
+				<br/>
+				Mauvais mot de passe<br/>
+				<br/>
+				<button class="window-btn" onclick="closeWrongPassword()">OK</button>
+			</div>
+		</div>
+
+	<!-- NOUVEAU CONTACT -->
+	<div id="newContact-window" class="hidden">
+		<div class="app-title"><span class="app-title-span">MESSAGE</span></div>
+		<div class="message-content">
+			<br/>
+			<span id="added"></span><br/>
+			<br/>
+			<button class="window-btn" onclick="closeNewContact('newContact-window')">OK</button>
+		</div>
+	</div>
+
+	<!-- APPEL ENTRANT -->
+	<div id="calling-window" class="hidden">
+		<div class="app-title"><span class="app-title-span">APPEL ENTRANT</span></div>
+		<div class="message-content">
+			<img id="callerIMG" />
+			<br/>
+			Appel entrant...<br/>
+			<br/>
+			<button class="window-btn" onclick="closeAppelEntrant('calling-window')">Répondre</button>
+		</div>
+	</div>
+
+	<!-- MESSAGE DE LOU -->
+	<div id="message-window" class="hidden">
+		<div class="app-title"><span class="app-title-span">MESSAGE</span></div>
+		<div class="message-content">
+			<img  id="caller2IMG" /><br/>
+			<span id="tips-content"></span><br/>
+			<button class="window-btn" onclick="closeIt('message-window')">Fermer</button>
+		</div>
+	</div>
+
+	<!-- MESSAGE PAS CALL -->
+	<div id="nocall-window" class="hidden">
+		<div class="app-title"><span class="app-title-span">...</span></div>
+		<div class="message-content">
+			Appel impossible pour le moment de toute la vie en fait<br/>
+			<button class="window-btn" onclick="closeIt('nocall-window')">Fermer</button>
+		</div>
+	</div>
+
+	<!-- SOLUTION -->
+	<div id="solution-window" class="hidden">
+		<div class="app-title"><span class="app-title-span">AIDE / SOLUTION</span></div>
+		<div class="message-content">
+			<button class="window-btn" onclick="instructionReveal('tips')">Cliquer pour savoir quoi faire à cette étape</button>
+			<br/>
+				<span id="tips" class="hidden"></span>
+			<br/>
+			<br/>
+			<button class="window-btn" onclick="solutionReveal('spoiler')">Cliquer pour afficher la solution de cette étape</button>
+			<br/>
+				<span id="spoiler" class="hidden"></span>
+			<br/>
+			<button class="window-btn" onclick="solutionClose('tips','spoiler', 'solution-window')">Fermer</button>
+		</div>
+	</div>
+
+	<!-- CREDIT -->
+	<div id="credit-window" class="hidden">
+		<div class="app-title"><span class="app-title-span">CREDITS</span></div>
+		<div class="message-content">
+			<span id="game-credit"></span>
+			<br/><br/>
+			<span id="game-thanks"></span>
+			<br/><br/>
+			========
+			<br/>
+			Basé sur le framework <b>Escaposaurus v1.0</b><br/>
+			Concept &amp; Développement : <a href="http://smader.interaction-project.net" target="_blank">Stéphanie Mader</a><br/>
+			Téléchargeable sur <a href="https://github.com/RedNaK/escaposaurus/" target="_blank">GitHub</a><br/>
+			Licence du code source : MIT<br/>
+			<br/>
+			<button class="window-btn" onclick="closeIt('credit-window')">Fermer</button>
+		</div>
+	</div>
+	
+	<!-- overlay index du jeu-->
+	<div id="overlay-index">
+		<div class="container" id="container-homeMission">
+			<br/>
+				<h3 id="home-gameTitle"></h3>
+				<span id="home-gameDescription"></span><br/><br/><br/><br/>
+				<div id="div-homeMission">
+					<h3 id="home-mission"></h3>
+					<video id="vid-overlay" controls="true" autoplay="true" src="" style="text-align:center;max-width:750px;"></video>
+					<br/><br/>
+					<button id="overlay-btn" class="window-btn" onclick="closeOverlay('overlay-index')"></btn>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

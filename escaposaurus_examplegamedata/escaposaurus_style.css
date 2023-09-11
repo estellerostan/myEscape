@@ -1,0 +1,454 @@
+/*<!--
+/////////////////////////////////////////////////////////////
+/// Escapausorus v1 (2020)
+///	A quick and dirty framework to create small adventure game (certified vanilla JS)
+/// Author: Stéphanie Mader (http://smader.interaction-project.net)
+/// GitHub: https://github.com/RedNaK/escaposaurus
+///	Licence: MIT
+////////////////////////////////////////////////////////////
+-->*/
+
+/*by default there is no margin or padding anywhere*/
+*{ margin: 0px; padding: 0px; }
+a{color:#1022CC;}
+body{font-family: Arial;}
+
+/*on veut la lightbox devant*/
+.lightbox-container {
+	z-index:302;
+}
+
+video{max-width: 960px;}
+
+@font-face {
+    font-family: Roboto;
+    src: url('img/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: Odibee;
+    src: url('img/fonts/Odibee_Sans/OdibeeSans-Regular.ttf') format('truetype');
+}
+
+/*size of the countainer defined to fit most used screen resolution*/
+/*main div container*/
+#main-container{
+	max-width: 1300px;
+	max-height:800px;
+	margin: auto;
+	height:100%;
+	border:1px solid #1022CC;
+	text-align: center;
+	position:relative;
+	
+	background: url(img/background.jpg);
+	background-position: center;
+	background-color:#1022CC;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#main-container-index{
+	max-width: 1300px;
+	max-height:800px;
+	margin: auto;
+	height:100%;
+	border:1px solid #1022CC;
+	text-align: center;
+	position:relative;
+}
+
+#container-homeMission{
+	width:800px;
+	background-color:white;
+	margin-top:20px;
+	padding-bottom:20px;
+}
+
+#div-homeMission{
+	background-color:#dcdcdc;
+	border:2px solid #1022CC;
+	padding:5px;
+}
+
+#os-name{
+	color:#ffffff;
+	font-size:30px;
+	font-weight: bold;
+	padding:5px;
+	background-color:#1022CC;
+	font-family: Roboto;
+}
+
+#main-game-div{
+	width:100%;
+}
+
+/*shared style for app*/
+.app-title{
+	height:50px;
+	background-color: #1022CC;
+	border:1px solid white;
+	color: white;
+	text-align:center;
+}
+
+.app-title-span{
+	font-family: Odibee ;
+	font-size:30px;
+}
+
+/*call app*/
+#callApp{
+	width:500px;
+	height:auto;
+	padding:0 0 0 0;
+	margin:50 100 12 50;
+	background-color:#fff;
+	border:2px solid black;
+	overflow: auto;
+}
+
+#callApp-help, #callApp-prompt{
+	font-size:18px;
+	padding:10px;
+	text-align: center;
+	background-color:#ccc;
+	color:black;
+}
+
+.contact-list{
+	padding:10px;
+	text-align: left;
+}
+
+.contact-div{
+	font-size:16px;
+	text-align: left;
+	margin-bottom:5px;
+	font-weight: bold;
+}
+
+.contact-div:hover{
+	background:#1022CC;
+	cursor: pointer;
+	color:fff;
+}
+
+.contact-avatar{
+	width:36px;
+	height:36px;
+	margin-right:5px;
+}
+
+.no-call{
+	font-weight: normal;
+	font-style: italic;
+	color:#aaaaaa;
+}
+
+.already-called{
+	font-weight: normal;
+}
+
+/* udisk app*/
+#folderApp{
+	width:450px;
+	height:650px;
+	overflow: auto;
+	padding:0 0 0 0;
+	margin:50 0 0 150;
+	background-color:#fff;
+	border:2px solid black;
+}
+
+#folderApp-content{
+	padding:10px;
+	text-align: left;
+}
+
+#overlay-index{
+	position:absolute;
+	z-index:310;
+	left:0%;
+	top:0%;
+
+	width:100%;
+	height:100%;
+	border:1px solid white;
+	background-color:#000;
+	text-align: center;
+}
+
+/*the "windows" we open for video and message/password*/
+#callVideo-window,
+#UIvid-window{
+	position:absolute;
+	z-index:305;
+	left:20%;
+	top:10%;
+	border:1px solid white;
+	background-color:#000;
+	width:1000px;
+	text-align: center;
+}
+
+#notnowPrompt-window,
+#passPrompt-window,
+#wrongPassword,
+#newContact-window,
+#calling-window,
+#message-window,
+#nocall-window,
+#solution-window,
+#credit-window{
+	position:absolute;
+	z-index:300;
+	left:45%;
+	top:35%;
+	border:1px solid white;
+	background-color:#000;
+	width:200px;
+}
+
+#solution-window,
+#credit-window{
+	background-color:#777;
+}
+
+#solution-window{
+	top:20%;
+	width:400px;
+}
+
+#credit-window{
+	top:20%;
+	width:400px;
+}
+
+/*we override part of the lightbox style*/
+.lightbox-image{
+	max-height:90vh;
+}
+
+#notnowPrompt-window button,
+#passPrompt-window button,
+#wrongPassword button,
+#newContact-window button,
+#UIvid-window button,
+#callVideo-window button,
+#calling-window button,
+#message-window button,
+#nocall-window button,
+#solution-window button,
+#credit-window button,
+#overlay-index button{
+	color:#fff;
+	background-color: #1022CC;
+	border: none;
+	padding:3px;
+	margin:3px;
+	font-family: Roboto ;
+	font-size:14px;
+	font-weight:bold;
+}
+
+#notnowPrompt-window button:hover,
+#passPrompt-window button:hover,
+#wrongPassword button:hover,
+#newContact-window button:hover,
+#UIvid-window button:hover,
+#callVideo-window button:hover,
+#calling-window button:hover,
+#message-window button:hover,
+#nocall-window button:hover,
+#solution-window button:hover,
+#credit-window button:hover,
+#overlay-index button:hover{
+	background-color: #fff;
+	color:#000;
+	cursor: pointer;
+}
+
+.message-content{
+	text-align:center;
+	color:#fff;
+	padding:5px;
+}
+
+#passwordInput{
+	text-align:center;
+	color:black;
+	margin:5px;
+}
+
+#footer{
+	height:34px;
+	width:100%;
+	background-color:#1022CC;
+	position: absolute;
+	padding-top:3px;
+	padding-bottom:3px;
+	bottom: 0;
+	text-align: center;
+}
+
+.footer-button{
+	color:#000;
+	background-color: #fff;
+	border:none;
+	margin-right:5px;
+	padding:3px;
+	font-family: Roboto ;
+	font-size:16px;
+	font-weight:bold;
+}
+
+.footer-button:hover{
+	color:#000;
+	background-color: #aaa;
+	cursor: pointer;
+}
+
+#password{
+	font-size:14px;
+}
+
+.hidden {
+	display: none;
+}
+
+/*to stylize placeholder in text input in different browser...*/
+::-webkit-input-placeholder { /* Edge */
+  color: grey;
+  text-align:center;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: grey;
+  text-align:center;
+}
+
+::placeholder {
+  color: grey;
+  text-align:center;
+}
+
+
+/*class that deals with the udrive content, tread carefully, it is working ok but very capricious*/
+ul{
+    margin: 0px 0px 0px 20px; 
+    list-style: none; line-height: 2em; font-family: Arial;
+}
+
+.arbo, .folder{
+    font-size: 16px;
+    position: relative;
+}
+
+.arbo:before{
+    position: absolute;
+    left: -15px;
+    top: 0px;
+    content: '';
+    display: block;
+    border-left: 1px solid #000;
+    height: 1em;
+    border-bottom: 1px solid #000;
+    width: 10px;
+}
+
+.folder-name{
+	background: url("img/iconFolder.png") left center no-repeat;
+	content: '';
+	display:inline-block;
+	padding-left:20px;
+	height:25px;
+	color:black;
+}
+
+.folder-name:hover{
+	text-decoration: none;
+}
+
+.protected-name{
+	background: url("img/iconPassword.png") left center no-repeat;
+	content: '';
+	display:inline-block;
+	padding-left:20px;
+	height:25px;
+}
+
+.protected-name:hover{
+	cursor: pointer;
+}
+
+.file-name{
+	background: url("img/iconFile.png")left center no-repeat;
+	content: '';
+	display:inline-block;
+	padding-left:20px;
+	height:25px;
+}
+
+.file-name:hover{
+	cursor: pointer;
+}
+
+
+.arbo:after{
+    position: absolute;
+    left: -15px;
+    bottom: -7px;
+    content: '';
+    display: block;
+    border-left: 1px solid #000;
+    height: 100%;
+}
+    
+.rootLI{
+	font-size: 16px;
+	margin: 0px 0px 0px -20px;
+}
+
+.arbo:last-child:after{ display: none }
+
+/*for the animation of the windows we open and close*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0);
+  }
+}
