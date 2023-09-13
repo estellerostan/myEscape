@@ -437,6 +437,8 @@ function openPasswordPrompt(foldername){
 		x.value = foldername ;
 		
 		var d = document.getElementById("folderD") ;
+		var t = document.getElementById("passPromptTitle") ;
+
 
 		var seqAnn = "Rechercher une adresse" ;
 		var seqMap = "Rechercher des lieux à visiter" ;
@@ -444,14 +446,17 @@ function openPasswordPrompt(foldername){
 		
 		switch (sequenceFolder[sequenceNumber])	{
 			case seqAnn : 
+				t.innerHTML = "Annuaire" ;
 				d.innerHTML = "Entrez l'adresse que vous cherchez :" ;
 				document.getElementById("passwordInput").placeholder = "ex:14 rue du ketchup" ;
 				break;
 			case seqMap : 
+				t.innerHTML = "Guide Touristique"
 				d.innerHTML = "Quel lieu voulez voir ?" ;
 				document.getElementById("passwordInput").placeholder = "ex:New Dehli" ;
 				break;
 			case seqFinal : 
+				t.innerHTML = "Coffre"
 				d.innerHTML = "Entrez la combinaison :" ;
 				document.getElementById("passwordInput").placeholder = "ex:1234" ;
 				break;
@@ -465,8 +470,6 @@ function openPasswordPrompt(foldername){
 
 	}else{
 		if(folderState[foldername] == 1){
-			var d = document.getElementById("folderN") ;
-			d.innerHTML = foldername ;
 
 			var p = document.getElementById("notnowPrompt-window") ;
 			p.classList.remove("hidden") ;

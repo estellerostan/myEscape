@@ -36,14 +36,14 @@ video{max-width: 960px;}
 	max-height:800px;
 	margin: auto;
 	height:100%;
-	border:1px solid #1022CC;
+	border:1px solid #cc10a3;
 	text-align: center;
 	position:relative;
 	
 	/* TODO: replace, can be a gif too!! */
 	background: url(img/background-placeholder.jpg);
 	background-position: center;
-	background-color:#1022CC;
+	background-color:#cc10a3;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -53,7 +53,7 @@ video{max-width: 960px;}
 	max-height:800px;
 	margin: auto;
 	height:100%;
-	border:1px solid #1022CC;
+	border:1px solid #cc10a3;
 	text-align: center;
 	position:relative;
 }
@@ -67,7 +67,7 @@ video{max-width: 960px;}
 
 #div-homeMission{
 	background-color:#dcdcdc;
-	border:2px solid #1022CC;
+	border:2px solid #cc10a3;
 	padding:5px;
 }
 
@@ -76,7 +76,7 @@ video{max-width: 960px;}
 	font-size:30px;
 	font-weight: bold;
 	padding:5px;
-	background-color:#1022CC;
+	background-color:#cc10a3;
 	font-family: Roboto;
 }
 
@@ -87,7 +87,7 @@ video{max-width: 960px;}
 /*shared style for app*/
 .app-title{
 	height:50px;
-	background-color: #1022CC;
+	background-color: #cc10a3;
 	border:1px solid white;
 	color: white;
 	text-align:center;
@@ -130,7 +130,7 @@ video{max-width: 960px;}
 }
 
 .contact-div:hover{
-	background:#1022CC;
+	background:#cc10a3;
 	cursor: pointer;
 	color:fff;
 }
@@ -244,7 +244,7 @@ video{max-width: 960px;}
 #credit-window button,
 #overlay-index button{
 	color:#fff;
-	background-color: #1022CC;
+	background-color: #cc10a3;
 	border: none;
 	padding:3px;
 	margin:3px;
@@ -285,7 +285,7 @@ video{max-width: 960px;}
 #footer{
 	height:34px;
 	width:100%;
-	background-color:#1022CC;
+	background-color:#cc10a3;
 	position: absolute;
 	padding-top:3px;
 	padding-bottom:3px;
