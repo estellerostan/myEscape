@@ -73,13 +73,13 @@ function startGameLocally(overlay){
 
 	loadGame(folders,files, overlay) ;
 
-	// journaux
+	// Carte
 	var folders2 = udiskData.root2.folders ;
 	var files2 = udiskData.root2.files ;
 
 	loadGame(folders2,files2, overlay, "root2") ;
 
-	// guide
+	// Divers
 	var folders3 = udiskData.root3.folders ;
 	var files3 = udiskData.root3.files ;
 
@@ -440,8 +440,8 @@ function openPasswordPrompt(foldername){
 		var t = document.getElementById("passPromptTitle") ;
 
 
-		var seqAnn = "Rechercher une adresse" ;
-		var seqMap = "Rechercher des lieux à visiter" ;
+		var seqAnn = "Valider l&apos;adresse de Mamie" ;
+		var seqMap = "Valider le métier de Mamie" ;
 		var seqFinal = "Ouvrir le coffre" ;
 		
 		switch (sequenceFolder[sequenceNumber])	{
@@ -451,9 +451,9 @@ function openPasswordPrompt(foldername){
 				document.getElementById("passwordInput").placeholder = "ex:14 rue du ketchup" ;
 				break;
 			case seqMap : 
-				t.innerHTML = "Guide Touristique"
+				t.innerHTML = "Divers"
 				d.innerHTML = "Quel lieu voulez voir ?" ;
-				document.getElementById("passwordInput").placeholder = "ex:New Dehli" ;
+				document.getElementById("passwordInput").placeholder = "ex:Agricultrice" ;
 				break;
 			case seqFinal : 
 				t.innerHTML = "Coffre"

@@ -40,7 +40,7 @@
 	  	{"root":{
 	  		"folders":
 		  		[
-		  		{"foldername":"Rechercher une adresse","password":"ee","sequence":0,
+		  		{"foldername":"Valider l&apos;adresse de Mamie","password":"ee","sequence":0,
 				  	"files":["scan_memo.png"]
 				}
 		 		],
@@ -48,19 +48,19 @@
 		"root2":{
 					"folders":
 						[
-						{"foldername":"Rechercher un article","password":"ee","sequence":2,
+						{"foldername":"Valider le métier de Mamie","password":"ee","sequence":1,
 							"files":["grandmas-letter.png"]
 					  }
 					   ],
-					   "files":[]},
+					   "files":["Secteur 1.png","Secteur 2.png","Secteur 3.png","Secteur 4.png"]},
 		"root3":{
 					"folders":
 						[
-						{"foldername":"Rechercher des lieux à visiter","password":"ee","sequence":1,
-							"files":["grandmas-letter.png"]
+						{"foldername":"Journal","password":"ee","sequence":2,
+							"files":["Journal page 1.png", "Journal page 2.png"]
 						}
 						],
-						"files":[]},
+						"files":["Acte de décès.png"]},
 		"root4":{
 					"folders":
 						[
