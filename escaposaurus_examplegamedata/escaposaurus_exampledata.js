@@ -44,7 +44,7 @@
 				  	"files":["scan_memo.png"]
 				}
 		 		],
-			"files":["Annuaire01.png","Annuaire02.png","Annuaire03.png"]},
+			"files":["Annuaire page 1.png","Annuaire page 2.png","Annuaire page 3.png"]},
 		"root2":{
 					"folders":
 						[
@@ -114,8 +114,8 @@
 	their img need to be placed in their video folder, username is their displayed name
 		*/
 		var normalContacts = [] ;
-		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Mamounette", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
-		normalContacts[1] = {"vid" : "Archivist", "vod_folder" : "", "username" : "L'Archiviste", "canal" : "video", "avatar" : "Archivist.png"} ;
+		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Maa mamounette", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
+		normalContacts[1] = {"vid" : "Archivist", "vod_folder" : "", "username" : "Archiviste", "canal" : "video", "avatar" : "Archivist.png"} ;
 
 		/*second part of the list, contact that can help the player*/
 		var helperContacts = [] ;
