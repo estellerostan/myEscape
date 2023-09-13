@@ -80,7 +80,18 @@
 
 		<div id='main-game-div' class="container">
 			<div class="row">
-				<div class="col-sm-6" style="height:85%;">
+				<div class="col-sm-5" style="padding-top:1%">
+					<div style="height:45%; background: url(escaposaurus_examplegamedata/img/chest-closed.png); background-repeat: no-repeat;">
+						<ul id="root4ul" name="root4ul">
+							<li class="root4LI">
+								Coffre
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
 					<div id="callApp">
 						<div class="app-title">
 							<span class="app-title-span" id="callerApp-name"></span>
@@ -93,21 +104,42 @@
 						</div>
 						<div id="help-contact" class="contact-list">
 						</div>
-				</div>
+					</div>
 				</div>
 
-				<div class="col-sm-6" style="height:85%;">
+				<div class="col-sm-9">
 					<div id="folderApp">
-						<div class="app-title">
-							<span class="app-title-span" id="explorer-name"></span>
+						<div>
+							<span id="explorer-name"></span>
 						</div>
 						<div id="folderApp-content">
-							<div>
-								<ul id="rootul" name="rootul">
-								  <li class="rootLI">
-								    Root
-								  </li>
-								</ul>
+							<div class="col-sm-4">
+								<div style="background: url(escaposaurus_examplegamedata/udisk/grandmas-letter.png); min-height: 300px; margin-top: 25%;">
+									<ul id="rootul" name="rootul">
+									<li class="rootLI">
+										Annuaire
+									</li>
+									</ul>
+								</div>
+							</div>
+							<!-- <div class="col-sm-4"></div> -->
+							<div class="col-sm-4">
+								<div style="background: url(escaposaurus_examplegamedata/udisk/grandmas-letter.png); min-height: 300px;">
+									<ul id="root2ul" name="root2ul">
+									<li class="root2LI">
+										Journaux
+									</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div style="background: url(escaposaurus_examplegamedata/udisk/grandmas-letter.png); min-height: 300px;  margin-top: 15%;">
+									<ul id="root3ul" name="root3ul">
+									<li class="root3LI">
+										Guide touristique
+									</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -139,10 +171,11 @@
 
 	<!--PASSWORD PROMPT-->
 		<div id="passPrompt-window" class="hidden">
-			<div class="app-title"><span class="app-title-span">PROTEGE</span></div>
+			<div class="app-title"><span class="app-title-span">Rechercher</span></div>
 			<div class="message-content">
-				Dossier : <span id="folderD"></span><br/>
-				<input id="passwordInput" name="passwordInput" type="text" placeholder="mot de passe" value="" autocomplete="off" onkeypress="checkIfEnter(event, passwordInput.value, folderInput.value)" />
+				<!-- TODO: remove changes, just for demo -->
+				Entrez un numéro de page : <span id="folderD" class="hidden"></span><br/>
+				<input id="passwordInput" name="passwordInput" type="text" placeholder="numéro de page" value="" autocomplete="off" onkeypress="checkIfEnter(event, passwordInput.value, folderInput.value)" />
 				<input id="folderInput" name="folderInput" type="hidden" value="0" />
 				<button class="window-btn" onclick="checkPassword(passwordInput.value, folderInput.value)">OK</button>
 				&nbsp;&nbsp;

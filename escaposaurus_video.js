@@ -67,10 +67,29 @@ function closeOverlay(overlay){
 
 function startGameLocally(overlay){
 
+	// annuaire
 	var folders = udiskData.root.folders ;
 	var files = udiskData.root.files ;
 
 	loadGame(folders,files, overlay) ;
+
+	// journaux
+	var folders2 = udiskData.root2.folders ;
+	var files2 = udiskData.root2.files ;
+
+	loadGame(folders2,files2, overlay, "root2") ;
+
+	// guide
+	var folders3 = udiskData.root3.folders ;
+	var files3 = udiskData.root3.files ;
+
+	loadGame(folders3,files3, overlay, "root3") ;
+
+	// coffre
+	var folders4 = udiskData.root4.folders ;
+	var files4 = udiskData.root4.files ;
+
+	loadGame(folders4,files4, overlay, "root4") ;
 }
 
 function startGame(overlay){
@@ -89,14 +108,15 @@ function startGame(overlay){
 
 	   
 	   loadGame(folders,files, overlay) ;
+	   loadGame(folders2,files2, overlay, "root2") ;
 	  }
 	});
 }
 
-function loadGame(folders, files, overlay){
+function loadGame(folders, files, overlay, name="root"){
 
 	/* create the html elem for the udisk and saving the password from the JSON*/
-    arborescence(folders, files, 'root', '') ;
+    arborescence(folders, files, name, '') ;
 
     /*lock and hide the protected folders*/
     lockFolders();
@@ -104,8 +124,10 @@ function loadGame(folders, files, overlay){
     createContactList() ;
     lockContacts() ;
 
-    /*launch lightbox after creation of the udisk to make it work*/
-    startLighBox() ;
+	/*launch lightbox after creation of the udisk to make it work*/
+	 // load the lib once with the last root folder
+	 // to prevent opening extra popups
+    if (name === "root4") { startLighBox() ; }
 
     /*to know when hint are opened*/
     addListenerToLink() ;

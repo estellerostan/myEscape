@@ -34,29 +34,41 @@
 		/*var udiskJSONPath = gameRoot+"escaposaurus_gamedata/udisk.json" ;
 		var udiskJSONPath = "/helper_scripts/accessJSON_udisk.php" ;*/
 
+		// Careful, foldernames need to be unique, calling them all "Rechercher" will lead to a bug
+		// where all the unlocked files go to the first root
 		var udiskData =
 	  	{"root":{
 	  		"folders":
 		  		[
-		  		{"foldername":"gaming",
-				  	"files":["20190509_316504.mp4", "Photo.jpg", "Tilesheet_Pokemon.png"]
-				},
-				{"foldername":"vieillescartespostales",
-						"files":["carte1.jpg", "carte2.jpg", "carte3.jpg", "carte4.jpg"]
-				},
-				{"foldername":"dcim","password":"forclaz","sequence":1,
-			  		"files":["20180807_103031.jpg", "20180807_114356.jpg", "20180807_123538.mp4"]
-			  	},
-			  	{"foldername":"itineraire2018",
-			  		"folders":[{"foldername":"perso", "files":["FXHT4438a.jpg","Screenshot20180701_Wanderplaner(1).jpg"],"password":"nata","sequence":0}]
-			  	},
-			  	{"foldername":"itineraire2019", "password":"trient","sequence":2,
-			  		"files":["fortnitescreen.png", "swisstopo-screen.png"],
-			  		"folders":[{"foldername":"GPS", "files":["idgps.png"],"password":"wandfluehorn","sequence":3}]
-			  	}
+		  		{"foldername":"Rechercher une adresse","password":"ee","sequence":0,
+				  	"files":["scan_memo.png"]
+				}
 		 		],
-			"files":[
-				"scan_memo.png"]}
+			"files":[]},
+		"root2":{
+					"folders":
+						[
+						{"foldername":"Rechercher un article","password":"ee","sequence":2,
+							"files":["grandmas-letter.png"]
+					  }
+					   ],
+					   "files":[]},
+		"root3":{
+					"folders":
+						[
+						{"foldername":"Rechercher des lieux à visiter","password":"ee","sequence":1,
+							"files":["grandmas-letter.png"]
+						}
+						],
+						"files":[]},
+		"root4":{
+					"folders":
+						[
+						{"foldername":"Ouvrir le coffre","password":"ee","sequence":3,
+							"files":["chest-opened.png"]
+						}
+						],
+						"files":[]}
 		} ;
 
 		var gameTitle = "Guliba Gangsta Paradise" ;
@@ -67,9 +79,9 @@
 		var gameCredit = "Un jeu conçu et réalisé par : <br/>EyeCrown" ;
 		var gameThanks = "Remerciements : <br/> ;) ma mère" ;
 
-		var OSName = "GulabiOS 3.11 - ° O ° " ;
-		var explorerName = "LE TRESOR DE MAMI" ;
-		var callerAppName = "LES GRANDS POTES" ;
+		var OSName = "" ;
+		var explorerName = "" ;
+		var callerAppName = "Téléphone" ;
 
 		/*titles of video windows*/
 		var titleData = {} ;

@@ -40,7 +40,8 @@ video{max-width: 960px;}
 	text-align: center;
 	position:relative;
 	
-	background: url(img/background.jpg);
+	/* TODO: replace, can be a gif too!! */
+	background: url(img/background-placeholder.jpg);
 	background-position: center;
 	background-color:#1022CC;
 	background-repeat: no-repeat;
@@ -99,11 +100,11 @@ video{max-width: 960px;}
 
 /*call app*/
 #callApp{
-	width:500px;
+	/* width:500px; */
 	height:auto;
 	padding:0 0 0 0;
-	margin:50 100 12 50;
-	background-color:#fff;
+	/* margin:50 100 12 50; */
+	/* background-color:#fff; */
 	border:2px solid black;
 	overflow: auto;
 }
@@ -152,13 +153,13 @@ video{max-width: 960px;}
 
 /* udisk app*/
 #folderApp{
-	width:450px;
-	height:650px;
+	/* width:450px; */
+	/* height:650px; */
 	overflow: auto;
 	padding:0 0 0 0;
-	margin:50 0 0 150;
-	background-color:#fff;
-	border:2px solid black;
+	/* margin:50 0 0 150; */
+	/* background-color:#fff; */
+	/* border:2px solid black; */
 }
 
 #folderApp-content{
