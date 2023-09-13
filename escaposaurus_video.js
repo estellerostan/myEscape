@@ -435,9 +435,29 @@ function openPasswordPrompt(foldername){
 
 		var x = document.getElementById("folderInput") ;
 		x.value = foldername ;
-
+		
 		var d = document.getElementById("folderD") ;
-		d.innerHTML = foldername ;
+
+		var seqAnn = "Rechercher une adresse" ;
+		var seqMap = "Rechercher des lieux à visiter" ;
+		var seqFinal = "Ouvrir le coffre" ;
+		
+		switch (sequenceFolder[sequenceNumber])	{
+			case seqAnn : 
+				d.innerHTML = "Entrez l'adresse que vous cherchez :" ;
+				document.getElementById("passwordInput").placeholder = "ex:14 rue du ketchup" ;
+				break;
+			case seqMap : 
+				d.innerHTML = "Quel lieu voulez voir ?" ;
+				document.getElementById("passwordInput").placeholder = "ex:New Dehli" ;
+				break;
+			case seqFinal : 
+				d.innerHTML = "Entrez la combinaison :" ;
+				document.getElementById("passwordInput").placeholder = "ex:1234" ;
+				break;
+		}
+
+		d.classList.remove("hidden") ;
 
 		var p = document.getElementById("passPrompt-window") ;
 		p.classList.remove("hidden") ;
