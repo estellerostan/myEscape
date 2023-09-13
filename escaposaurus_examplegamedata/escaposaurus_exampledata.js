@@ -115,7 +115,7 @@
 		*/
 		var normalContacts = [] ;
 		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Mamounette", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
-		normalContacts[1] = {"vid" : "Nathalie", "vod_folder" : "", "username" : "L'Archiviste", "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
+		normalContacts[1] = {"vid" : "Archivist", "vod_folder" : "", "username" : "L'Archiviste", "canal" : "video", "avatar" : "Archivist.png"} ;
 
 		/*second part of the list, contact that can help the player*/
 		var helperContacts = [] ;
@@ -127,7 +127,7 @@
 		finalStepAdded = "ID du GPS transmise aux secours." ;
 
 		/*the last call, it can be the person we find in the end or anyone else we call to end the quest, allows the game to know it is the final contact that is called and to proceed with the ending*/
-		var missingContact = {"vid" : "missing", "vod_folder" : "","username" : "Nathalie",  "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
+		var missingContact = {"vid" : "missing", "vod_folder" : "","username" : "Nathalie",  "canal" : "video", "avatar" : "Archivist.png"} ;
 
 		/*Lou only send text message, they are stored here*/
 		var tips = {} ;
