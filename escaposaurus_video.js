@@ -287,7 +287,7 @@ function cFile(name, parent, fullPath){
 	elemA.href = udiskRoot+fullPath+name ;
 	elemA.setAttribute("data-lightbox", "") ;
 	elemA.setAttribute("data-image-alt", "name") ;
-	elemA.innerHTML = name ;
+	elemA.innerHTML = name.split('.')[0] ; // Don't put dots in file names please ty
 	elem.appendChild(elemA) ;
 
 	var p = document.getElementById(parent+"ul") ;
