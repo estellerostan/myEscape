@@ -44,7 +44,7 @@
 				  	"files":["scan_memo.png"]
 				}
 		 		],
-			"files":[]},
+			"files":["Annuaire01.png","Annuaire02.png","Annuaire03.png"]},
 		"root2":{
 					"folders":
 						[
@@ -114,12 +114,12 @@
 	their img need to be placed in their video folder, username is their displayed name
 		*/
 		var normalContacts = [] ;
-		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Michel Denisot", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
-		normalContacts[1] = {"vid" : "Nathalie", "vod_folder" : "", "username" : "Nathalie (guide)", "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
+		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Mamounette", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
+		normalContacts[1] = {"vid" : "Nathalie", "vod_folder" : "", "username" : "L'Archiviste", "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
 
 		/*second part of the list, contact that can help the player*/
 		var helperContacts = [] ;
-		helperContacts[0] = {"vid" : "Albert", "vod_folder" : "", "username" : "Albert (pour avoir un indice)", "canal" : "txt", "avatar" : "albert.png", "bigAvatar" : "albertbig.png"} ;
+		helperContacts[0] = {"vid" : "Albert", "vod_folder" : "", "username" : "Mami (de là où tu es)", "canal" : "txt", "avatar" : "albert.png", "bigAvatar" : "albertbig.png"} ;
 		/*helperContacts[1] = {"vid" : "Lou", "username" : "Lou (pour avoir un deuxième indice) - par message", "canal" : "txt", "avatar" : "Lou_opt.jpg", "bigAvatar" : "avatarHelper2Big.gif"} ;*/
 
 
