@@ -559,10 +559,6 @@ function openVideoWindow(vid, vid_folder){
 	}else if(vid == "missing"){
 		title = titleData.callTitle ;
 		src = missingVideoPath ;
-
-		/*add listerner to launch the end of the game when player close this video*/
-		var cl = document.getElementById("btn-closecall") ;
-		cl.addEventListener("click", callbackCloseMissingCall) ;
 	}else{
 		if(mainHintFound){
 			title = titleData.callTitle ;
@@ -631,6 +627,9 @@ function changingSequence(){
 		TinyStato.logThis(2, "win", "", sequenceNumber) ;
 		unlockContacts() ;
 		win() ;
+		/*add listerner to launch the end of the game when player close this video*/
+		var cl = document.getElementById("showEpilogue") ;
+		cl.addEventListener("click", callbackCloseMissingCall) ;
 	}else{
 		TinyStato.logThis(3, "newsequence", "", sequenceNumber) ;
 		mainHintFound = false ;

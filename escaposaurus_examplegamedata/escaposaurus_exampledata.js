@@ -25,7 +25,7 @@
 		var missionVideoPath = videoRoot+"introVideo/intro.mp4" ;
 		var introVideoPath = videoRoot+"introVideo/intro2.mp4" ;
 		var missingVideoPath = videoRoot+"contactVideo/missing/final.mp4" ;
-		var epilogueVideoPath = videoRoot+"epilogueVideo/epiloguecredit.mp4" ;
+		var epilogueVideoPath = videoRoot+"epilogueVideo/CoffreVideo.mp4" ;
 
 		/*udisk JSON path*/
 		var udiskRoot = gameDataRoot+"udisk/" ;
@@ -40,7 +40,7 @@
 	  	{"root":{
 	  		"folders":
 		  		[
-		  		{"foldername":"Valider l&apos;adresse de Mamie","password":"ee","sequence":0,
+		  		{"foldername":"Valider l&apos;adresse de Mamie","password":"2 route Mahuta","sequence":0,
 				  	"files":[]
 				}
 		 		],
@@ -48,7 +48,7 @@
 		"root2":{
 					"folders":
 						[
-						{"foldername":"Valider le métier de Mamie","password":"ee","sequence":1,
+						{"foldername":"Valider le métier de Mamie","password":"Couturière","sequence":1,
 							"files":["Secteur 1.png","Secteur 2.png","Secteur 3.png","Secteur 4.png"]
 					  }
 					   ],
@@ -64,7 +64,7 @@
 		"root4":{
 					"folders":
 						[
-						{"foldername":"Ouvrir le coffre","password":"ee","sequence":2,
+						{"foldername":"Ouvrir le coffre","password":"2004","sequence":2,
 							"files":["chest-opened.png"]
 						}
 						],
@@ -99,7 +99,7 @@
 		prompt[4] = "Appeler Nathalie pour savoir où en sont les secours." ;
 
 		/*when the sequence number reach this, the player win, the missing contact is added and the player can call them*/
-		var sequenceWin = 4 ;
+		var sequenceWin = 3 ; 
 
 		/*before being able to call the contacts, the player has to open the main clue of the sequence as indicated in this array*/
 		/*if you put in the string "noHint", player will be able to immediatly call the contact at the beginning of the sequence*/
@@ -124,10 +124,10 @@
 
 
 		/*ce qui apparait quand on trouve le dernier élément du disque dur*/
-		finalStepAdded = "ID du GPS transmise aux secours." ;
+		finalStepAdded = "Vous avez trouvé le trésor de mamie." ;
 
 		/*the last call, it can be the person we find in the end or anyone else we call to end the quest, allows the game to know it is the final contact that is called and to proceed with the ending*/
-		var missingContact = {"vid" : "missing", "vod_folder" : "","username" : "Nathalie",  "canal" : "video", "avatar" : "Archivist.png"} ;
+		// var missingContact = {} ;
 
 		/*Lou only send text message, they are stored here*/
 		var tips = {} ;
