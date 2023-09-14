@@ -259,6 +259,9 @@ function cFolder(name, parent, password, seqNumber){
 		if (elem.name !== "Journal") {
 			elemA.setAttribute("onclick", "openPasswordPrompt('"+name+"')") ;
 		}
+		else {
+			elemA.style.color = '#d3d2d0';
+		}
 	}else{
 		elemA.classList.add("folder-name") ;
 	}
@@ -295,6 +298,9 @@ function cFile(name, parent, fullPath){
 	elemA.setAttribute("data-lightbox", "") ;
 	elemA.setAttribute("data-image-alt", "name") ;
 	elemA.innerHTML = name.split('.')[0] ; // Don't put dots in file names please ty
+	if (elem.name === "Journal page 1.png" || elem.name === "Journal page 2.png" || elem.name === "Acte de décès.png") {
+		elemA.style.color = '#d3d2d0';
+	}
 	elem.appendChild(elemA) ;
 
 	var p = document.getElementById(parent+"ul") ;
