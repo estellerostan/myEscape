@@ -260,6 +260,10 @@ function cFolder(name, parent, password, seqNumber){
 		elemA.classList.add("folder-name") ;
 	}
 
+	if (elem.id === "Valider l&apos;adresse de Mamie") {
+		elemA.style.marginRight = "110px";
+	}
+
 	elemA.id = name+"sp" ;
 	elemA.name = name+"sp" ;
 	elemA.innerHTML = name ;
