@@ -119,7 +119,7 @@
 
 		/*second part of the list, contact that can help the player*/
 		var helperContacts = [] ;
-		helperContacts[0] = {"vid" : "Archivist", "vod_folder" : "", "username" : "Archiviste", "canal" : "txt", "avatar" : "Archivist.png", "bigAvatar" : "Archivist.png"} ;
+		helperContacts[0] = {"vid" : "Archivist", "vod_folder" : "", "username" : "Archiviste (aide)", "canal" : "txt", "avatar" : "Archivist.png", "bigAvatar" : "Archivist.png"} ;
 		/*helperContacts[1] = {"vid" : "Lou", "username" : "Lou (pour avoir un deuxième indice) - par message", "canal" : "txt", "avatar" : "Lou_opt.jpg", "bigAvatar" : "avatarHelper2Big.gif"} ;*/
 
 

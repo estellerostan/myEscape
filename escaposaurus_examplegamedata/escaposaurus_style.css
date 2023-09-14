@@ -41,7 +41,7 @@ video{max-width: 960px;}
 	position:relative;
 	
 	/* TODO: replace, can be a gif too!! */
-	background: url(img/Plan_de_travail_1.png);
+	background: url(img/bg.gif);
 	background-position: center;
 	background-color:#cc10a3;
 	background-repeat: no-repeat;
