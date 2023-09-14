@@ -255,7 +255,10 @@ function cFolder(name, parent, password, seqNumber){
 	var elemA = document.createElement('a') ;
 	if(password != ""){
 		elemA.classList.add("protected-name") ;
-		elemA.setAttribute("onclick", "openPasswordPrompt('"+name+"')") ;
+		
+		if (elem.name !== "Journal") {
+			elemA.setAttribute("onclick", "openPasswordPrompt('"+name+"')") ;
+		}
 	}else{
 		elemA.classList.add("folder-name") ;
 	}
@@ -372,16 +375,39 @@ functions that deals with the password protection of folders
 function unlockFolder(unlockedFolder){
 	TinyStato.logThis(15, "unlockedfolder", unlockedFolder, sequenceNumber) ;
 
-	var x = document.getElementById(unlockedFolder+"sp") ;
-	x.classList.remove("protected-name") ;
-	x.classList.add("folder-name") ;
+	if (unlockedFolder === "Valider l&apos;adresse de Mamie") {
+		var x = document.getElementById("Valider le métier de Mamiesp") ;
+		x.classList.remove("protected-name") ;
+		x.classList.add("folder-name") ;
 
-	var y = document.getElementById(unlockedFolder+"ul") ;
-	y.classList.remove("hidden") ;
+		var y = document.getElementById("Valider le métier de Mamieul") ;
+		y.classList.remove("hidden") ;
 
-	/*changing the state to open*/
-	folderState[unlockedFolder] = 0 ;
+		/*changing the state to open*/
+		folderState["Valider le métier de Mamie"] = 0 ;
+	} else if (unlockedFolder === "Valider le métier de Mamie") {
+		var x = document.getElementById("Journalsp") ;
+		x.classList.remove("protected-name") ;
+		x.classList.add("folder-name") ;
 
+		var y = document.getElementById("Journalul") ;
+		y.classList.remove("hidden") ;
+
+		/*changing the state to open*/
+		folderState["Valider le métier de Mamie"] = 0 ;
+	} else {
+		var x = document.getElementById(unlockedFolder+"sp") ;
+		x.classList.remove("protected-name") ;
+		x.classList.add("folder-name") ;
+	
+		var y = document.getElementById(unlockedFolder+"ul") ;
+		y.classList.remove("hidden") ;
+	
+		/*changing the state to open*/
+		folderState[unlockedFolder] = 0 ;
+	
+	}
+	
 	/*opening a folder change the sequence, the content here is linear*/
 	changingSequence() ;
 }

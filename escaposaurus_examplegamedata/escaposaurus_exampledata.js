@@ -41,7 +41,7 @@
 	  		"folders":
 		  		[
 		  		{"foldername":"Valider l&apos;adresse de Mamie","password":"ee","sequence":0,
-				  	"files":["scan_memo.png"]
+				  	"files":[]
 				}
 		 		],
 			"files":["Annuaire page 1.png","Annuaire page 2.png","Annuaire page 3.png"]},
@@ -49,14 +49,14 @@
 					"folders":
 						[
 						{"foldername":"Valider le métier de Mamie","password":"ee","sequence":1,
-							"files":["grandmas-letter.png"]
+							"files":["Secteur 1.png","Secteur 2.png","Secteur 3.png","Secteur 4.png"]
 					  }
 					   ],
-					   "files":["Secteur 1.png","Secteur 2.png","Secteur 3.png","Secteur 4.png"]},
+					   "files":[]},
 		"root3":{
 					"folders":
 						[
-						{"foldername":"Journal","password":"ee","sequence":2,
+						{"foldername":"Journal","password":"ee","sequence":4,
 							"files":["Journal page 1.png", "Journal page 2.png"]
 						}
 						],
@@ -64,17 +64,17 @@
 		"root4":{
 					"folders":
 						[
-						{"foldername":"Ouvrir le coffre","password":"ee","sequence":3,
+						{"foldername":"Ouvrir le coffre","password":"ee","sequence":2,
 							"files":["chest-opened.png"]
 						}
 						],
 						"files":[]}
 		} ;
 
-		var gameTitle = "Guliba Gangsta Paradise" ;
-		var gameDescriptionHome = "Ceci est le test de Théo Carrasco sur le framework Escaposaurus.<br/>Le code source est téléchargeable sur <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUIcmlja3JvbGw%3D' target='_blank'>GitHub</a>" ;
-		var gameMissionCall = "Ouais, c'est Greg..." ;
-		var gameMissionAccept = "&raquo;&raquo; Alors ça dépote ! &laquo;&laquo;" ;
+		var gameTitle = "Gulabi gang" ;
+		var gameDescriptionHome = "Une grand-mère lègue au joueur un coffre fort dans lequel se cache son héritage, bloqué par une combinaison. Pour trouver cette combinaison, le joueur devra chercher des pistes à travers des articles relatant la vie de sa grand-mère, ancienne membre du Gulabi gang." ;
+		var gameMissionCall = "Appel de Maa" ;
+		var gameMissionAccept = "&raquo;&raquo; Partir à la recherche de la combinaison du coffre &laquo;&laquo;" ;
 
 		var gameCredit = "Un jeu conçu et réalisé par : <br/>EyeCrown" ;
 		var gameThanks = "Remerciements : <br/> ;) ma mère" ;
@@ -114,7 +114,7 @@
 	their img need to be placed in their video folder, username is their displayed name
 		*/
 		var normalContacts = [] ;
-		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Maa mamounette", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
+		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Maa mamounette", "canal" : "video", "avatar" : "Maa.png"} ;
 		normalContacts[1] = {"vid" : "Archivist", "vod_folder" : "", "username" : "Archiviste", "canal" : "video", "avatar" : "Archivist.png"} ;
 
 		/*second part of the list, contact that can help the player*/
